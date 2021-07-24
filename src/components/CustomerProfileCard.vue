@@ -16,7 +16,7 @@
       v-on:change="changeCustomer"
       outlined
     ></v-select>
-    <v-btn class="success">Add New</v-btn>
+    <v-btn class="success">Add New Customer</v-btn>
   </div>
 </template>
 

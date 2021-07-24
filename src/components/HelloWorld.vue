@@ -50,6 +50,10 @@
       <v-row>
         <pre-repair-condition></pre-repair-condition>
       </v-row>
+      <v-row justify="">
+          <repairing-form-vue></repairing-form-vue>
+
+      </v-row>
     </v-container>
   </v-container>
 </template>
@@ -59,12 +63,15 @@ import assesories from "../assets/assesories.json";
 import { mapGetters } from "vuex";
 import PreRepairCondition from "./PreRepairCondition.vue";
 import CustomerProfileCardVue from "./CustomerProfileCard.vue";
+import RepairingFormVue from './RepairingForm.vue';
+
 
 export default {
   name: "HelloWorld",
   components: {
     PreRepairCondition,
     CustomerProfileCardVue,
+    RepairingFormVue,
   },
 
   data() {
