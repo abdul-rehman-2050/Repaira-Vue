@@ -78,8 +78,7 @@ export default {
   }
 };
 </script>
-
-<style>
+<style scoped>
     .custom-red .theme--light{
         color:red !important;
     }

@@ -1,7 +1,8 @@
 <template>
   <v-container>
     <center><h1 class="pa-3">Create New Ticket</h1></center>
-
+      
+    
     <v-container class="grey lighten-5">
       <v-row>
         <v-col cols="12" md="12">
@@ -35,9 +36,12 @@
           </v-card>
         </v-col>
       </v-row>
+      <h3 class="pa-3"> Select Sub Category </h3> 
+      <faults :manufacturer="selectedmanufectuere"></faults>
       <v-row>
         <v-col>
           <v-btn
+          v-show="false"
             :disabled="!selected"
             color="error"
             class="mr-4"
@@ -64,6 +68,7 @@ import { mapGetters } from "vuex";
 import PreRepairCondition from "./PreRepairCondition.vue";
 import CustomerProfileCardVue from "./CustomerProfileCard.vue";
 import RepairingFormVue from './RepairingForm.vue';
+import Faults from './Faults.vue';
 
 
 export default {
@@ -72,14 +77,26 @@ export default {
     PreRepairCondition,
     CustomerProfileCardVue,
     RepairingFormVue,
+    Faults,
   },
 
   data() {
     return {
       assesories: assesories,
       selected: false,
+      selectedmanufectuere: "",
       curSelection: [],
     };
+  },
+
+  computed: {
+    ...mapGetters({
+      manufacturer: "tickets/manufacturer",
+    }),
+    deviceList() {
+      return this.assesories.filter(obj=>obj.Manufacturer.length>3).map(obj => obj.Manufacturer).filter((v, i, a) => a.indexOf(v) === i).map((key,_id) => ({id:_id,name: key,selected:false}));
+      
+    },
   },
 
   mounted: () => {
@@ -94,21 +111,19 @@ export default {
       if (!this.selected) {
         console.log("clicked:" + id);
         this.manufacturer.find((x) => x.id == id).selected = true;
+        this.selectedmanufectuere = this.manufacturer.find((x) => x.id == id).name;
         this.selected = true;
       }
     },
     resetAll: function () {
       this.selected = false;
+      this.selectedmanufectuere = "";
       this.manufacturer.forEach((e) => {
         e.selected = false;
       });
       this.curSelection = this.manufacturer;
     },
   },
-  computed: {
-    ...mapGetters({
-      manufacturer: "tickets/manufacturer",
-    }),
-  },
+  
 };
 </script>
