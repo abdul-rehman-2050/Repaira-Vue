@@ -72,11 +72,16 @@
       </v-row>
      
        <v-row justify="">
-         <v-col cols="12" md="12">
+         <v-col cols="12" md="6">
          <v-text-field type="text" error-count="" placeholder="Device Password" 
          label="Device Password" append-icon="" color="blue-grey lighten-2" v-model="devicePassword" outlined filled></v-text-field>
          </v-col>
+        <v-col md="6">
+          <v-select  v-model="ticketStatus" :items="statusOptions" filled color="blue-grey lighten-2"
+          label="Ticket Status"></v-select>
           
+          </v-col>   
+          {{curTicket}}
       </v-row>
       
     </v-container>
@@ -114,7 +119,9 @@ export default {
       selectedmanufectuere: "",
       selectedDeviceModel: "",
       curSelection: [],
+      statusOptions:["Active", "Pending", "in Progress", "Completed"],
       devicePassword:"",
+      ticketStatus: "",
     };
   },
 
@@ -126,6 +133,14 @@ export default {
       return this.assesories.filter(obj=>obj.Manufacturer.length>3).map(obj => obj.Manufacturer).filter((v, i, a) => a.indexOf(v) === i).map((key,_id) => ({id:_id,name: key,selected:false}));
       
     },
+    curTicket(){
+      return {
+        deviceMenufecturer: this.selectedmanufectuere,
+        deviceModel: this.selectedDeviceModel,
+        devicePassword: this.devicePassword,
+        deivceTicketStatus: this.ticketStatus,
+      }
+    }
   },
 
   mounted: () => {
