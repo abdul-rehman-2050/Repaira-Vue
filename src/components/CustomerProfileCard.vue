@@ -14,6 +14,7 @@
       item-text="name"
       return-object
       v-on:change="changeCustomer"
+      v-model="curCustomer"
       outlined
     ></v-select>
     
@@ -31,6 +32,9 @@ export default {
         email: "default@gmail.com",
         phone: "92123456789"
       },
+      curCustomer:{
+
+      },
     };
   },
   computed: {
@@ -42,20 +46,10 @@ export default {
     changeCustomer(a) {
       this.customer = a;
       console.log(a);
+      this.$emit('selected-customer', a);
     },
   },
-  /* props: {
-    customer: {
-      type: Object,
-      default() {
-        return {
-          id: 0,
-          name: "Walk In Customer",
-          email: "default@gmail.com",
-        };
-      },
-    },
-  },*/
+  
 };
 </script>
 

@@ -6,7 +6,7 @@
     <v-container class="grey lighten-5">
       <v-row>
         <v-col cols="12" md="12">
-          <customer-profile-card-vue></customer-profile-card-vue>
+          <customer-profile-card-vue v-on:selected-customer="selectCustomer"></customer-profile-card-vue>
         </v-col>
       </v-row>
       <v-row>
@@ -118,6 +118,8 @@ export default {
       selected: false,
       selectedmanufectuere: "",
       selectedDeviceModel: "",
+      selectedPreDeviceCondition:{},
+      selectedCustomer:{},
       curSelection: [],
       statusOptions:["Active", "Pending", "in Progress", "Completed"],
       devicePassword:"",
@@ -139,6 +141,7 @@ export default {
         deviceModel: this.selectedDeviceModel,
         devicePassword: this.devicePassword,
         deivceTicketStatus: this.ticketStatus,
+        customer: this.selectedCustomer,
       }
     }
   },
@@ -151,6 +154,9 @@ export default {
     };
   },
   methods: {
+    selectCustomer: function(customer){
+        this.selectedCustomer = customer;
+    },
     doDeviceSelection: function(value){
       this.selectedDeviceModel = value;
       console.log(this.selectedDeviceModel);

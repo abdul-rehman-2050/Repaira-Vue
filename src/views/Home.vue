@@ -1,15 +1,18 @@
 <template>
-  <hello-world />
+  <create-ticket />
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
+  
+import CreateTicket from '../components/CreateTicket.vue'
 
   export default {
     name: 'Home',
 
     components: {
-      HelloWorld,
+      CreateTicket,
     },
   }
 </script>
+
+        
