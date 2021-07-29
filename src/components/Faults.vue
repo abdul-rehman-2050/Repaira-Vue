@@ -35,6 +35,7 @@ export default {
       assesories: assesories,
       selected: false,
       selectedmanufectuere: "",
+      selectedItem: {},
       
     };
   },
@@ -71,18 +72,22 @@ export default {
     makeSelection: function (id) {
       console.log(id);
         console.log(this.deviceList.filter(x => x.selected==true ));
-      if (!this.selected) {
+      if (this.selected) {
+          this.selected = false;
+          this.deviceList.map(x=>x.selected=false)
+      }
         console.log("clicked:" + id);
         this.deviceList.find((x) => x.id == id).selected = true;
         console.log(this.deviceList.find(
           (x) => x.id == id
         ));
-        this.selectedmanufectuere = this.deviceList.find(
+        this.selectedItem =  this.deviceList.find(
           (x) => x.id == id
-        ).name;
+        )
+        this.selectedmanufectuere =this.selectedItem.name;
         this.selected = true;
         this.$forceUpdate();  
-      }
+      
     },
   },
 };

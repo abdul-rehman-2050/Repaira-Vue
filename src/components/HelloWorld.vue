@@ -116,12 +116,14 @@ export default {
   },
   methods: {
     makeSelection: function (id) {
-      if (!this.selected) {
+      if (this.selected) {
+          this.resetAll()
+      }
         console.log("clicked:" + id);
         this.manufacturer.find((x) => x.id == id).selected = true;
         this.selectedmanufectuere = this.manufacturer.find((x) => x.id == id).name;
         this.selected = true;
-      }
+      
     },
     resetAll: function () {
       this.selected = false;
