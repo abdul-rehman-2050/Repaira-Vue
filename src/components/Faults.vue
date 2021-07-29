@@ -86,7 +86,9 @@ export default {
         )
         this.selectedmanufectuere =this.selectedItem.name;
         this.selected = true;
+       
         this.$forceUpdate();  
+        this.$emit('clicked',this.selectedItem.name)
       
     },
   },

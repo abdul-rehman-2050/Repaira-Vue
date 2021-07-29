@@ -36,9 +36,20 @@
           </v-card>
         </v-col>
       </v-row>
-      <h3 class="pa-3"> Select Device Model </h3> 
-      <p v-if="!selected"> Please select manufacturer first </p>
-      <faults :manufacturer="selectedmanufectuere"></faults>
+      <v-row>
+        <v-col>
+      <h3 class="pt-3"> Select Device Model </h3> 
+      <p class="pt-5" v-if="!selected"> Please select manufacturer first </p>
+      <faults :manufacturer="selectedmanufectuere" @clicked="doDeviceSelection"></faults>
+      </v-col>
+      </v-row>
+      <v-row >
+        <v-col cols="12" md="12">
+          <h3 class="pt-3"> Select Device Problems </h3> 
+        </v-col>
+       
+      </v-row>
+       <problems-vue :devicemodel="selectedDeviceModel"></problems-vue>
       <v-row>
         <v-col>
           <v-btn
@@ -59,10 +70,15 @@
           <assign-to-vue> </assign-to-vue>
 
       </v-row>
+     
        <v-row justify="">
-         <repairing-form-vue></repairing-form-vue>
-
+         <v-col cols="12" md="12">
+         <v-text-field type="text" error-count="" placeholder="Device Password" 
+         label="Device Password" append-icon="" color="blue-grey lighten-2" v-model="devicePassword" outlined filled></v-text-field>
+         </v-col>
+          
       </v-row>
+      
     </v-container>
   </v-container>
 </template>
@@ -72,10 +88,12 @@ import assesories from "../assets/problems.json";
 import { mapGetters } from "vuex";
 import PreRepairCondition from "./PreRepairCondition.vue";
 import CustomerProfileCardVue from "./CustomerProfileCard.vue";
-import RepairingFormVue from './RepairingForm.vue';
+
 
 import Faults from './Faults.vue';
 import AssignToVue from './AssignTo.vue';
+import ProblemsVue from './Problems.vue';
+
 
 
 export default {
@@ -83,9 +101,10 @@ export default {
   components: {
     PreRepairCondition,
     CustomerProfileCardVue,
-    RepairingFormVue,
+    
     Faults,
     AssignToVue,
+    ProblemsVue,
   },
 
   data() {
@@ -93,7 +112,9 @@ export default {
       assesories: assesories,
       selected: false,
       selectedmanufectuere: "",
+      selectedDeviceModel: "",
       curSelection: [],
+      devicePassword:"",
     };
   },
 
@@ -115,6 +136,12 @@ export default {
     };
   },
   methods: {
+    doDeviceSelection: function(value){
+      this.selectedDeviceModel = value;
+      console.log(this.selectedDeviceModel);
+      console.log("event fired");
+
+    },
     makeSelection: function (id) {
       if (this.selected) {
           this.resetAll()
