@@ -1,5 +1,6 @@
 <template>
   <v-container>
+   
     <v-row v-if="manufacturer.length > 3">
       <v-col
         cols="12"
@@ -27,7 +28,7 @@
 
 
 <script>
-import assesories from "../assets/assesories.json";
+import assesories from "../assets/problems.json";
 export default {
   data() {
     return {
