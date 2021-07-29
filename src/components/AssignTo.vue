@@ -12,7 +12,7 @@
               label="Assign to "
               item-text="name"
               item-value="name"
-              multiple
+              
             >
               <template v-slot:selection="data">
                 <v-chip
@@ -65,7 +65,7 @@ export default {
 
     return {
       autoUpdate: true,
-      friends: ["Sandra Adams", "Britta Holt"],
+      friends: ["Sandra Adams"],
       isUpdating: false,
       name: "Device Model",
       people: [
