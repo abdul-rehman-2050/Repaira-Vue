@@ -40,7 +40,7 @@
         <v-col>
       <h3 class="pt-3"> Select Device Model </h3> 
       <p class="pt-5" v-if="!selected"> Please select manufacturer first </p>
-      <faults :manufacturer="selectedmanufectuere" @clicked="doDeviceSelection"></faults>
+      <manufecturer :manufacturer="selectedmanufectuere" @clicked="doDeviceSelection"></manufecturer>
       </v-col>
       </v-row>
       <v-row >
@@ -92,10 +92,10 @@
 import assesories from "../assets/problems.json";
 import { mapGetters } from "vuex";
 import PreRepairCondition from "./PreRepairCondition.vue";
-import CustomerProfileCardVue from "./CustomerProfileCard.vue";
+import CustomerProfileCardVue from "./Customers/CustomerProfileCard.vue";
 
 
-import Faults from './Faults.vue';
+import Manufecturer from './Manufecturer.vue';
 import AssignToVue from './AssignTo.vue';
 import ProblemsVue from './Problems.vue';
 
@@ -107,7 +107,7 @@ export default {
     PreRepairCondition,
     CustomerProfileCardVue,
     
-    Faults,
+    Manufecturer,
     AssignToVue,
     ProblemsVue,
   },

@@ -7,8 +7,8 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import AddCustomer from "../components/AddCustomer.vue";
-import CustomerInfoList from "../components/CustomerInfoList.vue";
+import AddCustomer from "../components/Customers/AddCustomer.vue";
+import CustomerInfoList from "../components/Customers/CustomerInfoList.vue";
 
 export default {
   name: "Customer",

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import CustomerInfo from "../components/CustomerInfo.vue";
+import CustomerInfo from "./CustomerInfo.vue";
 export default {
   name: "CustomerInfoList",
   props:['customers'],
