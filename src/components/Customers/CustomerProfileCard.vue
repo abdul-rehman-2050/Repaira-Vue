@@ -1,24 +1,46 @@
 <template>
-  <div class="card pt-3">
-    <v-icon x-large>mdi-account</v-icon>
-    <h3>{{ customer.name }}</h3>
+  <v-card class="mx-auto" max-width="434" tile>
+    <v-row>
+      <v-col cols="12" xs="4">
+        <v-avatar size="100" class="ml-3">
+          <!-- v-img src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"></v-img -->
+          <v-icon color="orange darken-2" size="100">mdi-account</v-icon>
+        </v-avatar>
+      </v-col>
+      <v-col xs="8">
+        <v-list-item color="rgba(0, 0, 0, .4)">
+          <v-list-item-content>
+            <v-list-item-title class="title">
+              {{ customer.name }}</v-list-item-title
+            >
+            <v-list-item-subtitle>
+              <v-icon class="mr-3" color="orange darken-2"> mdi-email </v-icon
+              >{{ customer.email }}
+            </v-list-item-subtitle>
+            <v-list-item-subtitle>
+              <v-icon class="mr-3" color="orange darken-2"> mdi-phone </v-icon
+              >{{ customer.phone }}</v-list-item-subtitle
+            >
+          </v-list-item-content>
+        </v-list-item>
+      </v-col>
+    </v-row>
 
-    <v-icon class="ma-3" color="teal darken-2"> mdi-email </v-icon
-    >{{ customer.email }}
-    <v-icon class="ma-3" color="teal darken-2"> mdi-phone </v-icon
-    >{{ customer.phone }}
-    <v-select
-        class="mx-2"
-      :items="customerslist"
-      label="Select Customer"
-      item-text="name"
-      return-object
-      v-on:change="changeCustomer"
-      v-model="curCustomer"
-      outlined
-    ></v-select>
-    
-  </div>
+    <v-col class="text-right">
+      <v-select
+        class="ml-2"
+        :items="customerslist"
+        label="Select Customer"
+        item-text="name"
+        return-object
+        v-on:change="changeCustomer"
+        v-model="curCustomer"
+      ></v-select>
+      <v-btn dark color="orange darken-2" class="mx-2 pull-right">
+        <v-icon dark> mdi-plus </v-icon> Add New Customer
+      </v-btn>
+    </v-col>
+  </v-card>
 </template>
 
 <script>
@@ -30,11 +52,9 @@ export default {
         id: 0,
         name: "Walk In Customer",
         email: "default@gmail.com",
-        phone: "92123456789"
+        phone: "92123456789",
       },
-      curCustomer:{
-
-      },
+      curCustomer: {},
     };
   },
   computed: {
@@ -46,47 +66,11 @@ export default {
     changeCustomer(a) {
       this.customer = a;
       console.log(a);
-      this.$emit('selected-customer', a);
+      this.$emit("selected-customer", a);
     },
   },
-  
 };
 </script>
 
 <style scoped>
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 400px;
-  margin: auto;
-  text-align: center;
-}
-
-.title {
-  color: grey;
-  font-size: 18px;
-}
-
-button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-}
-
-a {
-  text-decoration: none;
-  font-size: 22px;
-  color: black !important;
-}
-
-button:hover,
-a:hover {
-  opacity: 0.7;
-}
 </style>
