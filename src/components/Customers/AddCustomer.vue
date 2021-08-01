@@ -112,6 +112,8 @@ export default {
       }
        
       this.$store.commit('customers/addCustomer', cur_customer)
+      this.name="";this.phoneNumber="",this.email="";
+      this.$emit('cutomer-added', true);
       
     
     },

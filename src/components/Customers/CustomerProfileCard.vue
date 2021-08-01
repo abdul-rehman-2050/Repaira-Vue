@@ -7,6 +7,7 @@
           <v-icon color="orange darken-2" size="100">mdi-account</v-icon>
         </v-avatar>
       </v-flex>
+
       <v-flex xs8>
         <v-list-item color="rgba(0, 0, 0, .4)">
           <v-list-item-content>
@@ -24,6 +25,10 @@
           </v-list-item-content>
         </v-list-item>
       </v-flex>
+
+
+
+
     </v-layout>
 
     <v-col class="text-right">
@@ -36,16 +41,20 @@
         v-on:change="changeCustomer"
         v-model="curCustomer"
       ></v-select>
-      <v-btn dark color="orange darken-2" class="mx-2 pull-right">
-        <v-icon dark> mdi-plus </v-icon> Add New Customer
-      </v-btn>
-    </v-col>
+        <add-customer-dialog></add-customer-dialog>
+     </v-col>
+    
   </v-card>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import AddCustomerDialog from './AddCustomerDialog';
+
 export default {
+  components: {
+    AddCustomerDialog,
+  },
   data() {
     return {
       customer: {
