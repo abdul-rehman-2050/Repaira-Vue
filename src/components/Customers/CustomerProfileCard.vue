@@ -1,13 +1,13 @@
 <template>
   <v-card class="mx-auto" max-width="434" tile>
-    <v-row>
-      <v-col cols="12" xs="4">
+    <v-layout row>
+      <v-flex xs4>
         <v-avatar size="100" class="ml-3">
           <!-- v-img src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"></v-img -->
           <v-icon color="orange darken-2" size="100">mdi-account</v-icon>
         </v-avatar>
-      </v-col>
-      <v-col xs="8">
+      </v-flex>
+      <v-flex xs8>
         <v-list-item color="rgba(0, 0, 0, .4)">
           <v-list-item-content>
             <v-list-item-title class="title">
@@ -23,8 +23,8 @@
             >
           </v-list-item-content>
         </v-list-item>
-      </v-col>
-    </v-row>
+      </v-flex>
+    </v-layout>
 
     <v-col class="text-right">
       <v-select
