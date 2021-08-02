@@ -73,7 +73,7 @@
      
        <v-row justify="">
          <v-col cols="12" md="6">
-         <v-text-field type="text" error-count="" placeholder="Device Password" 
+         <v-text-field type="password" error-count="" placeholder="Device Password" 
          label="Device Password" append-icon="" color="blue-grey lighten-2" v-model="devicePassword" outlined filled></v-text-field>
          </v-col>
         <v-col md="6">
