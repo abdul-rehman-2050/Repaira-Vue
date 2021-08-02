@@ -78,9 +78,9 @@ export default {
   }
 };
 </script>
-<style scoped>
-    .custom-red .theme--light{
-        color:red !important;
-    }
+<style >
+   .v-input--switch__track{
+     color:red !important;
+   }
   
 </style>
