@@ -68,6 +68,11 @@
       </v-row>
       <v-row justify="">
           <assign-to-vue> </assign-to-vue>
+          <v-col>
+          <v-select color v-model="selectedWarrenty" :items="warentyOptions" filled 
+          label="Select Warrenty"></v-select>
+          
+        </v-col>
 
       </v-row>
      
@@ -83,6 +88,8 @@
           </v-col>   
           {{curTicket}}
       </v-row>
+
+     
       
     </v-container>
   </v-container>
@@ -118,10 +125,12 @@ export default {
       selected: false,
       selectedmanufectuere: "",
       selectedDeviceModel: "",
+      selectedWarrenty: "",
       selectedPreDeviceCondition:{},
       selectedCustomer:{},
       curSelection: [],
       statusOptions:["Active", "Pending", "in Progress", "Completed"],
+      warentyOptions:["No warrenty", "1 Day", "1 Month", "1 year", "Life time"],
       devicePassword:"",
       ticketStatus: "",
     };
