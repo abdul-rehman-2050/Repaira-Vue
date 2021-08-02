@@ -1,7 +1,7 @@
 <template>
   <v-main class="grey lighten-5 d-flex align-center mx-3">
     <v-container>
-    <v-row><h3>Add New Customer</h3></v-row>
+      <v-row><h3>Add New Customer</h3></v-row>
       <validation-observer ref="observer" v-slot="{ invalid }">
         <form @submit.prevent="submit" class="my-3">
           <validation-provider
@@ -15,25 +15,19 @@
               :error-messages="errors"
               label="Name"
               required
+              outlined
             ></v-text-field>
           </validation-provider>
-          <validation-provider
-            v-slot="{ errors }"
-            name="phoneNumber"
-            :rules="{
-              required: true,
-              digits: 11,
-              regex: '^(92|03|71|72|74|76|81|82|84|85|86|87|88|89)\\d{9}$',
-            }"
-          >
-            <v-text-field
-              v-model="phoneNumber"
-              :counter="11"
-              :error-messages="errors"
-              label="Phone Number"
+
+          
+            <VuePhoneNumberInput
               required
-            ></v-text-field>
-          </validation-provider>
+              
+              :error-messages="errors"
+              v-model="phoneNumber"
+            />
+             
+          
           <validation-provider
             v-slot="{ errors }"
             name="email"
@@ -44,6 +38,9 @@
               :error-messages="errors"
               label="E-mail"
               required
+              outlined
+              class="mt-3"
+              color="white"
             ></v-text-field>
           </validation-provider>
 
@@ -56,6 +53,8 @@
 </template>
 <script>
 import { required, digits, email, max, regex } from "vee-validate/dist/rules";
+import VuePhoneNumberInput from "vue-phone-number-input";
+import "vue-phone-number-input/dist/vue-phone-number-input.css";
 import {
   extend,
   ValidationObserver,
@@ -94,28 +93,29 @@ export default {
   components: {
     ValidationProvider,
     ValidationObserver,
+    VuePhoneNumberInput,
   },
   data: () => ({
     name: "",
     phoneNumber: "",
     email: "",
+    selectedNumber: "",
   }),
 
   methods: {
     submit() {
       //this.$refs.observer.validate();
-      
+
       let cur_customer = {
-          name: this.name,
-          phone:this.phoneNumber,
-          email: this.email,
-      }
-       
-      this.$store.commit('customers/addCustomer', cur_customer)
-      this.name="";this.phoneNumber="",this.email="";
-      this.$emit('cutomer-added', true);
-      
-    
+        name: this.name,
+        phone: this.phoneNumber,
+        email: this.email,
+      };
+
+      this.$store.commit("customers/addCustomer", cur_customer);
+      this.name = "";
+      (this.phoneNumber = ""), (this.email = "");
+      this.$emit("cutomer-added", true);
     },
     clear() {
       this.name = "";
