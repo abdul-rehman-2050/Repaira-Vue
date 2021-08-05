@@ -1,3 +1,4 @@
 {
-    "api_v1": "https://ep4cltardf.execute-api.us-east-2.amazonaws.com/alpha"
+    "api_v1": "https://ep4cltardf.execute-api.us-east-2.amazonaws.com/alpha",
+    "api_test_key": "Y5liDgIA1v7K3GOISzixi8bx828IKwGC8Eo7WGuh"
 }
