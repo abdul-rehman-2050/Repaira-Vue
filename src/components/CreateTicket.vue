@@ -68,11 +68,16 @@
       </v-row>
       <v-row justify="">
           <assign-to-vue> </assign-to-vue>
-          <v-col>
+          
+          
+        
+        <v-col cols="12" md="4">
+          <v-text-field type="number" color="blue-grey lighten-2" value="1" filled/>
+        </v-col>
+        <v-col cols="12" md="8">
           <v-select color v-model="selectedWarrenty" :items="warentyOptions" filled 
           label="Select Warrenty"></v-select>
-          
-        </v-col>
+          </v-col>
 
       </v-row>
      
@@ -86,11 +91,19 @@
           label="Ticket Status"></v-select>
           
           </v-col>   
-          {{curTicket}}
+          
+      </v-row>
+      <v-row>
+        <v-col>
+            <h3> Due Date </h3>
+              <v-date-picker v-model="picker"></v-date-picker>
+          
+        </v-col>
       </v-row>
 
+
      
-      
+      {{curTicket}}
     </v-container>
   </v-container>
 </template>
@@ -122,6 +135,7 @@ export default {
 
   data() {
     return {
+      picker: "",
       assesories: assesories,
       selected: false,
       selectedmanufectuere: "",
@@ -131,7 +145,7 @@ export default {
       selectedCustomer:{},
       curSelection: [],
       statusOptions:["Active", "Pending", "in Progress", "Completed"],
-      warentyOptions:["No warrenty", "1 Day", "1 Month", "1 year", "Life time"],
+      warentyOptions:["No warrenty", "Day", "Month", "year", "Life time"],
       devicePassword:"",
       ticketStatus: "",
     };
@@ -152,6 +166,7 @@ export default {
         devicePassword: this.devicePassword,
         deivceTicketStatus: this.ticketStatus,
         customer: this.selectedCustomer,
+        duedate: this.picker,
       }
     }
   },
