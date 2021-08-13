@@ -1,14 +1,16 @@
 <template>
   <div>
-    <add-customer />
+    <customer-add-form-vue/>
     <customer-info-list :customers="customers"/>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
-import AddCustomer from "../components/Customers/AddCustomer.vue";
+//import AddCustomer from "../components/Customers/AddCustomer.vue";
+import CustomerAddFormVue from '../components/Customers/CustomerAddForm.vue';
 import CustomerInfoList from "../components/Customers/CustomerInfoList.vue";
+
 
 export default {
   name: "Customer",
@@ -30,8 +32,9 @@ export default {
   },
 
   components: {
-    AddCustomer,
+    
     CustomerInfoList,
+    CustomerAddFormVue,
   },
   methods: {
     
