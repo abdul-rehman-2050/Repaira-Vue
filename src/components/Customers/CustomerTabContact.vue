@@ -75,10 +75,14 @@
             class="mr-4"
             @click="validate"
           >
-            Add New
+            Save
+            <v-icon right>mdi-cloud-upload</v-icon>
           </v-btn>
 
-          <v-btn color="error" class="mr-4" @click="reset"> Reset Form </v-btn>
+          <v-btn color="error" class="mr-4" @click="reset">
+            Reset Form
+            <v-icon dark right>mdi-cancel</v-icon>
+          </v-btn>
         </v-row>
       </v-form>
     </v-container>
@@ -94,7 +98,7 @@ export default {
     hearaboutus: "",
     selectedGroup: "",
     selectedTaxOption: "",
-    phoneNumber:"",
+    phoneNumber: "",
     groupOptions: ["Individual", "Group"],
     taxOptions: ["Sales Tax", "Tax Exempt"],
     hearingOptions: [
