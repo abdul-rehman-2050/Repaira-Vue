@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import AddCustomer from './AddCustomer.vue';
+import AddCustomer from './CustomerAddForm.vue';
 
 
 
