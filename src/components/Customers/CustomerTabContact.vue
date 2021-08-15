@@ -84,7 +84,7 @@
           </v-btn>
 
           <v-btn color="error" class="mr-4" @click="reset">
-            Reset Form
+            Reset 
             <v-icon dark right>mdi-cancel</v-icon>
           </v-btn>
         </v-row>
