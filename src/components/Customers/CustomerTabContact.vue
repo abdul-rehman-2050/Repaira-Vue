@@ -27,6 +27,7 @@
               :rules="nameRules"
               :counter="10"
               label="First name"
+              append-icon="mdi-account"
               required
             ></v-text-field>
           </v-col>
@@ -37,7 +38,9 @@
               :rules="nameRules"
               :counter="10"
               label="Last name"
+              append-icon="mdi-account"
               required
+
             ></v-text-field>
           </v-col>
 
@@ -47,6 +50,7 @@
               :rules="emailRules"
               label="E-mail"
               required
+              append-icon="mdi-email"
             ></v-text-field>
           </v-col>
           <v-col cols="12" md="6">

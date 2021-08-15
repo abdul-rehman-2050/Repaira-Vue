@@ -29,7 +29,7 @@
         :rules="attributeNameRules"
       ></v-text-field>
       <v-btn class="ml-2" dark x-large color="success" @click="addField">
-        <v-icon>mdi-plus</v-icon> Add Custom Field
+        <v-icon left >mdi-plus-circle</v-icon> Add Custom Field
       </v-btn>
     </v-row>
   </v-container>
@@ -48,10 +48,11 @@ export default {
       alert: false,
       items: [],
       attributeName: "",
-       attributeNameRules: [
-      (v) => !!v || "Attribute Name is required",
-      (v) => v.length <= 10 || "Attribute Name must be less than 10 characters",
-    ],
+      attributeNameRules: [
+        (v) => !!v || "Attribute Name is required",
+        (v) =>
+          v.length <= 10 || "Attribute Name must be less than 10 characters",
+      ],
     };
   },
 
