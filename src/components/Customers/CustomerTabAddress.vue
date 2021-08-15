@@ -35,8 +35,7 @@
         ></v-text-field>
       </v-col>
 
-
- <v-col cols="12" md="6">
+      <v-col cols="12" md="6">
         <v-text-field
           type="text"
           placeholder=""
@@ -44,7 +43,6 @@
           v-model="state"
         ></v-text-field>
       </v-col>
-
 
       <v-col cols="12" md="6"
         ><v-select
@@ -55,7 +53,7 @@
         ></v-select>
       </v-col>
 
-       <v-col cols="12" md="6">
+      <v-col cols="12" md="6">
         <v-text-field
           type="text"
           placeholder=""
@@ -64,7 +62,7 @@
         ></v-text-field>
       </v-col>
 
-       <v-col cols="12" md="6">
+      <v-col cols="12" md="6">
         <v-text-field
           type="text"
           placeholder=""
@@ -72,19 +70,12 @@
           v-model="contactPerson"
         ></v-text-field>
       </v-col>
-
-
     </v-row>
     <v-row justify="center" align="center" class="ma-3">
-          <v-btn
-            
-            color="success"
-            class="mr-4"
-            
-          >
-            Save
-            <v-icon right>mdi-cloud-upload</v-icon>
-          </v-btn>
+      <v-btn color="success" class="mr-4">
+        Save
+        <v-icon right>mdi-cloud-upload</v-icon>
+      </v-btn>
     </v-row>
   </v-container>
 </template>
