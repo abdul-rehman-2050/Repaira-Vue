@@ -1,12 +1,5 @@
-
-import { resolve as _resolve } from 'path'
-export const configureWebpack = {
-  resolve: {
-    alias: {
-      src: _resolve(__dirname, 'src')
-    }
-  },
+module.exports = {
+  transpileDependencies: [
+    'vuetify'
+  ]
 }
-export const transpileDependencies = [
-  'vuetify'
-]
