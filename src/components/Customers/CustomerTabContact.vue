@@ -3,6 +3,24 @@
     <v-container class="pa-8">
       <v-form ref="form" v-model="valid" :lazy-validation="lazy">
         <v-row>
+          <v-col>
+            <v-select
+              color
+              v-model="selectedGroup"
+              :items="groupOptions"
+              label="Customer Group"
+            ></v-select>
+          </v-col>
+          <v-col>
+            <v-select
+              color
+              v-model="selectedTaxOption"
+              :items="taxOptions"
+              label="Tax Class"
+            ></v-select>
+          </v-col>
+        </v-row>
+        <v-row>
           <v-col cols="12" md="6">
             <v-text-field
               v-model="firstname"
@@ -31,14 +49,23 @@
               required
             ></v-text-field>
           </v-col>
-          <v-col cols="12" md="12">
+          <v-col cols="12" md="6">
             <v-select
               color
               v-model="hearaboutus"
               :items="hearingOptions"
-              
               label="How do you hear about us?"
             ></v-select>
+          </v-col>
+
+          <v-col>
+            <v-text-field
+              type="text"
+              placeholder="Phone Number"
+              label="Phone Number"
+              append-icon="mdi-phone"
+              v-model="phoneNumber"
+            ></v-text-field>
           </v-col>
         </v-row>
         <v-row>
@@ -65,6 +92,11 @@ export default {
     firstname: "",
     lastname: "",
     hearaboutus: "",
+    selectedGroup: "",
+    selectedTaxOption: "",
+    phoneNumber:"",
+    groupOptions: ["Individual", "Group"],
+    taxOptions: ["Sales Tax", "Tax Exempt"],
     hearingOptions: [
       "Facebook",
       "Bing",
