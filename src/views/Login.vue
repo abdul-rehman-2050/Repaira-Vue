@@ -7,7 +7,7 @@
             <v-card elevation="0">
               
                 <v-img
-                  src="@/assets/logo.jpeg"
+                  src="@/assets/logo1.png"
                   alt="Fedorae Education Log"
                   contain
                   height="100"
