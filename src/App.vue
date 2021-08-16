@@ -1,10 +1,9 @@
 <template>
   <div id="app">
     <v-app>
-      <SideBar v-if="$route.name != 'Login'"/>
+      <SideBar v-if="$route.name != 'Login'" />
       <AppBar v-if="$route.name != 'Login'" />
       <v-main>
-        
         <v-container fluid>
           <v-row class="fill-height">
             <v-col>
@@ -24,9 +23,14 @@ import SideBar from "./components/SideBar";
 export default {
   name: "App",
 
+  mounted() {
+    
+
+  },
   data: () => ({
     //
   }),
+
   components: {
     AppBar,
     SideBar,
