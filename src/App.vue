@@ -1,9 +1,10 @@
 <template>
   <div id="app">
     <v-app>
-      <SideBar />
-      <AppBar />
+      <SideBar v-if="$route.name != 'Login'"/>
+      <AppBar v-if="$route.name != 'Login'" />
       <v-main>
+        
         <v-container fluid>
           <v-row class="fill-height">
             <v-col>

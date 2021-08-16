@@ -14,6 +14,7 @@
           color="red"
           dark
           dismissible
+          transition="fade-transition"
         >
           {{ alertMessage }}
         </v-alert>
@@ -29,7 +30,7 @@
         :rules="attributeNameRules"
       ></v-text-field>
       <v-btn class="ml-2" dark x-large color="success" @click="addField">
-        <v-icon left >mdi-plus-circle</v-icon> Add Custom Field
+        <v-icon left>mdi-plus-circle</v-icon> Add Custom Field
       </v-btn>
     </v-row>
   </v-container>
