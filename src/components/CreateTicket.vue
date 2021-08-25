@@ -117,10 +117,47 @@
           ></v-select>
         </v-col>
       </v-row>
-      <v-row>
+      <v-row justify>
         <v-col>
           <h3>Due Date</h3>
           <v-date-picker v-model="picker"></v-date-picker>
+        </v-col>
+        <v-col>
+          <v-text-field
+            type="text"
+            error-count=""
+            placeholder=""
+            label="Device Phycical Location:"
+            append-icon=""
+            v-model="physicalLocation"
+           filled
+          ></v-text-field>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <v-textarea
+            outlined
+            color="gray"
+            placeholder=""
+            error-count=""
+            name=""
+            label="Private Notes:"
+            v-model="privateNotes"
+            filled
+          ></v-textarea>
+        </v-col>
+        <v-col>
+          <v-textarea
+            outlined
+            color=""
+            placeholder=""
+            error-count=""
+            name=""
+            label="Diagnostic Notes:"
+            v-model="diagnosticNote"
+            filled
+          ></v-textarea>
         </v-col>
       </v-row>
 
@@ -161,6 +198,9 @@ export default {
       selectedPreDeviceCondition: {},
       selectedCustomer: {},
       curSelection: [],
+      privateNotes: "",
+      diagnosticNote: "",
+      physicalLocation: "",
       statusOptions: ["Active", "Pending", "in Progress", "Completed"],
       warentyOptions: ["No warrenty", "Day", "Month", "year", "Life time"],
       devicePassword: "",
